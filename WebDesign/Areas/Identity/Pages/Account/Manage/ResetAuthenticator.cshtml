@@ -1,0 +1,24 @@
+﻿@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Сбросить ключ аутентификатора";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h3>@ViewData["Title"]</h3>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>Если вы сбросите ключ аутентификатора, ваше приложение-аутентификатор не будет работать, пока вы его не настроите заново.</strong>
+    </p>
+    <p>
+        Этот процесс отключает 2FA до тех пор, пока вы не проверите свое приложение-аутентификатор.
+        Если вы не завершите настройку вашего приложения-аутентификатора, вы можете потерять доступ к своей учетной записи.
+    </p>
+</div>
+<div>
+    <form id="reset-authenticator-form" method="post">
+        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">Сбросить ключ аутентификатора</button>
+    </form>
+</div>
