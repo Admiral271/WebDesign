@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebDesign.Models;
 
@@ -12,7 +13,6 @@ namespace WebDesign.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
