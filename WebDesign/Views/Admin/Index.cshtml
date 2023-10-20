@@ -1,12 +1,32 @@
-﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
-@{
-    ViewData["Title"] = "Список пользователей";
-}
+﻿@model IEnumerable<UserRolesViewModel>
+@using Microsoft.AspNetCore.Identity
 
-<h1>Список пользователей</h1>
-<ul>
-    @foreach (var user in Model)
-    {
-        <li>@user.Email</li>
-    }
-</ul>
+<a class="btn btn-dark" asp-controller="Admin" asp-action="CreateRole">Создать роль</a>
+<h2>Список пользователей</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Роли</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    @foreach (var role in user.Roles)
+                    {
+                        <span>@role</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="EditUserRoles" asp-route-userId="@user.UserId" class="btn btn-primary">Изменить роли</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
