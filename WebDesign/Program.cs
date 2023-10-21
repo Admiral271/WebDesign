@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using WebDesign.Data;
-using WebDesign.Services; 
+using WebDesign.Services;
+using Microsoft.Extensions.DependencyInjection; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -45,6 +45,12 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-RoleInitializer.InitializeAsync(app.Services.GetRequiredService<UserManager<IdentityUser>>(), app.Services.GetRequiredService<RoleManager<IdentityRole>>()).Wait();
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    RoleInitializer.InitializeAsync(userManager, roleManager).Wait();
+}
 
 app.Run();
