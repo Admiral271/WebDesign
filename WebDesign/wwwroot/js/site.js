@@ -6,7 +6,7 @@ var app = new Vue({
     el: '#home',
     data: {
         products: [
-            { status: false, id: 0, name: "Гель для душа", cost: 345 + " руб.", about: "Очищающий гель для душа без сульфатов с запахом манго", rate: 4.3, photo: "https://cdn.100sp.ru/cache_pictures/328097071/thumb400" },
+            { status: false, id: 0, name: "АААААААААААААААААААА Я Гель для душа", cost: 345 + " руб.", about: "Очищающий гель для душа без сульфатов с запахом манго", rate: 4.3, photo: "https://cdn.100sp.ru/cache_pictures/328097071/thumb400" },
             { status: false, id: 1, name: "Шампунь", cost: 450 + " руб.", about: "Увлажняющий шампунь для сухих волос с маслом авокадо", rate: 4.8, photo: "https://cs5.livemaster.ru/storage/cd/61/8ea61989d7fb7c86b8c9b801fdce--kosmetika-ruchnoj-raboty-organicheskij-shampun-zheltok-s-limo.jpg" },
             { status: false, id: 2, name: "Крем для рук", cost: 250 + " руб.", about: "Питательный крем для рук с экстрактом алоэ вера", rate: 4.5, photo: "https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/1307369/x60uQlzUXL7NhMIRA12NbQ.jpeg" },
             { status: false, id: 3, name: "Маска для лица", cost: 590 + " руб.", about: "Очищающая маска для лица с глиной и экстрактом зеленого чая", rate: 4.7, photo: "https://sun9-80.userapi.com/impg/xNofb3tlhFO2i2j4Y5F90-wodZnNorAYsSrjyQ/wcCV0K1K22E.jpg?size=1280x1280&quality=96&sign=f2b8d28269a58dc648fbcde0911c3eb0&c_uniq_tag=MsEYvovbpainPQXqHfgqUdcrPZUPNh7LPsfKB6Bp5Og&type=album" },
