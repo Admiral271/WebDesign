@@ -2,7 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center" style="margin-left: 120px;">
+    <div id="home">
+        <div class="row">
+            <div class="col-md-4" v-for="product in products">
+                <div class="card" style="width:230px; border-radius: 10%">
+                    <br />
+                    <div class="align-content-center">
+                        <img :src="product.photo" style="width: 200px; height: 200px; border-radius:10%;" />
+                    </div>
+                    {{ product.name }}
+                    <br />
+                    {{product.cost}}
+                    <br />
+                    <p style="font-size: 12px;">{{product.about}}</p>
+                    <div v-if="product.status==false" class="align-content-center">
+                        <a class="btn btn-success" style="width:200px;" v-on:click="trash(product)">Добавить в корзину</a>
+                    </div>
+                    <div v-else class="align-content-center">
+                        <a class="btn btn-danger" style="width:200px;" v-on:click="trash(product)">Удалить из корзины<i class="bi bi-trash3-fill"></i></a>
+                    </div>
+
+                    <br />
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
 </div>
